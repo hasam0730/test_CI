@@ -20,6 +20,7 @@ jobs:
         with:
           flutter-version: "2.2.1"
       - run: flutter clean
+      - run: flutter packages pub run build_runner build lib
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
