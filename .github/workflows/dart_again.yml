@@ -1,5 +1,8 @@
 name: dart_again
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
       - master
