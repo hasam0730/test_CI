@@ -3,8 +3,6 @@ name: Flutter CI
 # This workflow is triggered on pushes to the repository.
 
 on: [ push, pull_request ]
-branches:
-  - main
     
 jobs:
 
