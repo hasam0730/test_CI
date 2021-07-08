@@ -10,8 +10,6 @@ on:
 # on: push    # Default will running for every branch.
     
 jobs:
-- job: build_mobile_app
-  displayName: Build mobile app
   steps:
 
   - task: Bash@3
