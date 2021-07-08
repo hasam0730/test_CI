@@ -39,5 +39,5 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
-      - run: flutter cleanup
+      - run: flutter clean
       - run: flutter build appbundle
