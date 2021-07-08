@@ -12,14 +12,14 @@ on:
 jobs:
   steps:
 
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        wget https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_2.2.3-stable.zip
-        unzip flutter_macos_2.2.3-stable.zip
-        export PATH="`pwd`/flutter/bin:$PATH"
-    displayName: 'Download Flutter sdk'
+  # - task: Bash@3
+  #   inputs:
+  #     targetType: 'inline'
+  #     script: |
+  #       wget https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_2.2.3-stable.zip
+  #       unzip flutter_macos_2.2.3-stable.zip
+  #       export PATH="`pwd`/flutter/bin:$PATH"
+  #   displayName: 'Download Flutter sdk'
   
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v2
