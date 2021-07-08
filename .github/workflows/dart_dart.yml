@@ -25,3 +25,11 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
+
+    - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        export PATH="`pwd`/flutter/bin:$PATH"
+        flutter build apk --no-tree-shake-icons --build-name $(Build.BuildNumber)
+    displayName: 'Build Android'
