@@ -14,6 +14,37 @@ jobs:
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
+
+    - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        wget https://storage.googleapis.com/flutter_infra/releases/stable/macos/$(FLUTTER_VERSION)
+        unzip $(FLUTTER_VERSION)
+        export PATH="`pwd`/flutter/bin:$PATH"
+    displayName: 'Download Flutter sdk'
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        export PATH="`pwd`/flutter/bin:$PATH"
+        flutter clean
+        sed -i '' 's/generate: true/generate: false/g' pubspec.yaml
+        flutter packages get
+        flutter packages pub run r_flutter:generate
+        flutter pub run build_runner build --delete-conflicting-outputs
+        sed -i '' 's/generate: false/generate: true/g' pubspec.yaml
+        flutter packages get
+    displayName: 'Generate stuff'
+
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        export PATH="`pwd`/flutter/bin:$PATH"
+        flutter build apk --no-tree-shake-icons --build-name $(Build.BuildNumber)
+    displayName: 'Build Android'
     
     # Setup Java environment in order to build the Android app.
     - uses: actions/checkout@v1
