@@ -24,7 +24,6 @@ jobs:
         export PATH="`pwd`/flutter/bin:$PATH"
     displayName: 'Download Flutter sdk'
     
-    # Setup Java environment in order to build the Android app.
     - uses: actions/checkout@v2
     - uses: actions/setup-java@v2
       with:
