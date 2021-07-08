@@ -46,7 +46,7 @@ jobs:
 
   build_appbundle:
     name: Build Flutter (Android)
-    needs: [flutter_test]
+    needs: [code-analysis-and-testing]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
