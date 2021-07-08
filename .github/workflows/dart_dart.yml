@@ -5,7 +5,6 @@ name: Flutter CI
 on: [ push, pull_request ]
 branches:
   - main
-  - 'feature/**'
     
 jobs:
 
