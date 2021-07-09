@@ -71,8 +71,8 @@ jobs:
 
     - name: Prepare key_store.jks & key.properties files
       env:
-        FS_KEYSTORE_FILE: ${{ secret.FS_KEYSTORE_FILE }}
-        FS_KEY_PROPERTIES_FILE: ${{ secret.FS_KEY_PROPERTIES_FILE }}
+        FS_KEYSTORE_FILE: ${{ secrets.FS_KEYSTORE_FILE }}
+        FS_KEY_PROPERTIES_FILE: ${{ secrets.FS_KEY_PROPERTIES_FILE }}
       run: |
         echo "Convert base64 strings to files"
         echo "$FS_KEYSTORE_FILE" >> key.jks.base64
