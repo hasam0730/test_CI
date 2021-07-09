@@ -73,16 +73,9 @@ jobs:
         FS_KEYSTORE_FILE: ${{ secrets.FS_KEYSTORE_FILE }}
         FS_KEY_PROPERTIES_FILE: ${{ secrets.FS_KEY_PROPERTIES_FILE }}
       run: |
-        echo "Convert base64 strings to files"
-        echo "$FS_KEYSTORE_FILE" >> key.jks.base64
-        echo "$FS_KEY_PROPERTIES_FILE" >> key.properties.base64
-        echo "done with base64 files creation"
-        base64 --decode key.jks.base64 > key.jks
-        echo "done key.jks"
-        base64 --decode key.properties.base64 > key.properties
-        echo "done key.properties"
+        echo -n "STRING" | base64
       working-directory: 'android/'
-
+    
     - name: Set up Flutter
       uses: subosito/flutter-action@v1.4.0
       with:
