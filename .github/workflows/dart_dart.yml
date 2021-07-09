@@ -76,7 +76,7 @@ jobs:
         echo "Convert base64 strings to files"
         echo "$FS_KEYSTORE_FILE" >> key.jks.base64
         echo "$FS_KEY_PROPERTIES_FILE" >> key.properties.base64
-        echo "check file 0000"
+        echo "------$FS_KEYSTORE_FILE"
         # echo "done with base64 files creation"
         # base64 --decode key.jks.base64 > key.jks
         # echo "done key.jks"
