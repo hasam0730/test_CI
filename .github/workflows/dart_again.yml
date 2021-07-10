@@ -1,0 +1,26 @@
+name: dart_again
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  flutter_test:
+    name: Run flutter test and analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: "2.2.1"
+      - run: flutter clean
+      - run: flutter packages pub run build_runner build lib
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
